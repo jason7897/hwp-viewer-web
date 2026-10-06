@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>맥북에서 hwp를 docx로, docx를 hwp로 — 방향마다 방법이 다릅니다</title>
+<meta name="description" content="맥북에서 한글파일(hwp)과 워드파일(docx)을 서로 바꾸는 방법. 두 방향의 난이도가 완전히 다른 이유와, 각각 지금 바로 쓸 수 있는 방법을 정리했습니다.">
+<meta property="og:title" content="맥북에서 hwp ↔ docx 바꾸기">
+<meta property="og:description" content="hwp에서 docx로는 쉽고, 반대는 어렵습니다. 방향별로 정리했습니다.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://hwp-web.pages.dev/guide/mac-docx/">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"HWP 뷰어","item":"https://hwp-web.pages.dev/"},{"@type":"ListItem","position":2,"name":"가이드","item":"https://hwp-web.pages.dev/guide/"},{"@type":"ListItem","position":3,"name":"맥북에서 hwp와 docx 바꾸기","item":"https://hwp-web.pages.dev/guide/mac-docx/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"맥북에서 hwp를 docx로, docx를 hwp로","mainEntityOfPage":{"@type":"WebPage","@id":"https://hwp-web.pages.dev/guide/mac-docx/"},"inLanguage":"ko","author":{"@type":"Organization","name":"HWP 뷰어","url":"https://hwp-web.pages.dev/"},"publisher":{"@type":"Organization","name":"HWP 뷰어","url":"https://hwp-web.pages.dev/"},"description":"맥북에서 한글파일(hwp)과 워드파일(docx)을 서로 바꾸는 방법. 두 방향의 난이도가 완전히 다른 이유와, 각각 지금 바로 쓸 수 있는 방법을 정리했습니다.","datePublished":"2026-10-01"}</script>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="sitenav" aria-label="사이트 메뉴">
+    <a class="home" href="/">HWP 뷰어</a>
+    <a href="/guide/" aria-current="page">가이드</a>
+    <a href="/about/">소개</a>
+    <a href="/contact/">문의</a>
+  </nav>
+  <div class="crumb"><a href="/">HWP 뷰어</a> › 가이드 › 맥북에서 hwp와 docx 바꾸기</div>
+
+  <h1>맥북에서 hwp를 docx로, docx를 hwp로</h1>
+  <p class="lede">같은 "변환"이라는 말을 쓰지만 두 방향은 난이도가 전혀 다릅니다. 한쪽은 브라우저에서 몇 초면 끝나고, 다른 한쪽은 맥에서 손이 많이 갑니다. 어느 쪽이 필요하신지부터 정하고 읽으시면 됩니다.</p>
+  <div class="meta">2026-10-01 작성</div>
+
+  <div class="scrollx">
+  <table>
+    <thead><tr><th>하려는 것</th><th>맥에서 가능한가</th><th>방법</th></tr></thead>
+    <tbody>
+      <tr><td><strong>hwp·hwpx → docx</strong></td><td>됩니다</td><td><a href="/">이 사이트</a>에서 바로. 설치 없음</td></tr>
+      <tr><td><strong>docx → hwp</strong></td><td>제대로는 어렵습니다</td><td>한컴 공식 제품 또는 아래 우회로</td></tr>
+      <tr><td>docx를 맥에서 열어보기</td><td>됩니다</td><td>Pages·워드·구글 문서 아무거나</td></tr>
+      <tr><td>hwp를 맥에서 열어보기</td><td>됩니다</td><td><a href="/">이 사이트</a> 또는 한컴 공식 무료 뷰어</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>왜 한 방향만 쉬운가</h2>
+
+  <p>hwp는 한글과컴퓨터가 만든 형식이고, docx는 마이크로소프트가 만든 형식입니다. 둘 다 문서를 담지만 안쪽 구조가 다릅니다.</p>
+
+  <p>hwp에서 docx로 갈 때는 <strong>원본 파일을 읽어서 내용과 구조를 꺼낸 다음, 그 내용을 docx 규격으로 다시 쓰면</strong> 됩니다. hwp를 읽는 일은 공개된 방법이 있어서 브라우저 안에서도 할 수 있습니다.</p>
+
+  <p>반대 방향은 <strong>docx를 읽는 것까지는 쉬운데, 그 내용을 hwp 규격으로 정확히 써 넣는 것이 어렵습니다.</strong> 저희도 이 사이트에서 hwp를 <em>읽는</em> 기능은 만들었지만 <em>만들어 내는</em> 기능은 넣지 못했습니다. 브라우저에서 무료로 돌아가면서 hwp로 저장까지 해 주는 도구는 찾지 못했습니다.</p>
+
+  <div class="note"><b>이 사이트가 하는 일과 못 하는 일.</b> hwp·hwpx를 열어 <strong>docx·PDF·텍스트로 내보내는 것</strong>은 여기서 바로 됩니다. 파일은 서버로 올라가지 않고 브라우저 안에서 처리됩니다. 반대로 <strong>docx를 hwp로 만들어 드리지는 못합니다.</strong> 그 방향은 아래에 실제로 쓸 수 있는 방법만 적었습니다.</div>
+
+  <h2>hwp·hwpx → docx (맥에서 바로 됩니다)</h2>
+
+  <p>한컴오피스를 설치하지 않아도 되고, 회원가입도 필요 없습니다.</p>
+
+  <ol>
+    <li><a href="/">홈</a>을 사파리나 크롬에서 엽니다</li>
+    <li>가운데 영역에 hwp 또는 hwpx 파일을 끌어다 놓습니다</li>
+    <li>내용이 표시되면 <strong>「Word(.docx)로 저장」</strong>을 누릅니다</li>
+  </ol>
+
+  <p>받은 docx는 맥의 Pages, 마이크로소프트 워드, 구글 문서 어디서나 열립니다.</p>
+
+  <div class="note ok"><b>변환한 docx는 내용을 옮기는 용도로 보세요.</b> 글자와 문단, 표의 값은 그대로 넘어가지만 <strong>원본의 모양이 픽셀 단위로 같지는 않습니다.</strong> 쪽 나눔 위치, 여백, 글꼴 크기가 조금씩 달라질 수 있습니다. 제출물이라 모양이 중요하다면 docx 대신 <a href="/guide/pdf/">PDF로 저장</a>하세요. PDF는 모양이 그대로 유지됩니다.</div>
+
+  <h2>docx → hwp (여기가 어려운 쪽입니다)</h2>
+
+  <p>맥에서 이 방향은 깔끔하게 끝나지 않습니다. 아래 셋 중에서 상황에 맞는 것을 고르시되, <strong>우회로마다 잃는 것이 있다</strong>는 점을 먼저 아셔야 합니다.</p>
+
+  <h3>방법 1. 한컴 공식 제품 쓰기</h3>
+
+  <p>hwp 형식을 만드는 쪽은 한컴 제품군이 본가입니다. 맥용 제품을 이미 쓰고 계시다면 docx를 열어 hwp로 저장하는 경로가 있는지 먼저 보세요. <strong>제품별로 지원 범위와 요금이 다르고 자주 바뀌므로, 구매 전에 한컴 공식 사이트에서 직접 확인하시길 권합니다.</strong> 이 글에 금액을 적어두면 금방 틀린 정보가 되므로 적지 않았습니다.</p>
+
+  <h3>방법 2. 내용만 옮기기</h3>
+
+  <p>제출 양식이 정해져 있고 거기에 내용을 채워 넣는 상황이라면 이 방법이 가장 빠르고 확실합니다.</p>
+
+  <ol>
+    <li>docx를 Pages나 워드로 엽니다</li>
+    <li>필요한 부분을 복사합니다</li>
+    <li>hwp 양식 파일에 붙여 넣습니다 — 이때 <strong>「텍스트만 붙이기」</strong>를 쓰면 원본의 글꼴·색·간격이 따라오지 않아 뒷정리가 줍니다</li>
+  </ol>
+
+  <p>표가 있다면 표만 따로 복사하지 말고, hwp에서 표를 새로 만든 뒤 값만 채우는 편이 어긋남이 적습니다.</p>
+
+  <h3>방법 3. 윈도우를 빌리기</h3>
+
+  <p>회사나 학교 PC, 가족의 윈도우 노트북처럼 한컴오피스가 깔린 기계가 있다면 거기서 열어 hwp로 저장하는 것이 가장 깔끔합니다. 파일 하나 옮기는 시간이 변환과 씨름하는 시간보다 짧은 경우가 많습니다.</p>
+
+  <div class="note"><b>온라인 변환 사이트를 쓸 때.</b> docx를 hwp로 바꿔 준다는 사이트가 있습니다. 대부분 <strong>파일을 서버에 업로드하는 방식</strong>이고, 결과 품질은 원본에 따라 크게 달라집니다. 업무 문서나 개인정보가 든 문서라면 파일이 외부로 나가도 되는지 먼저 확인하세요. <a href="/guide/convert-free/">무료 변환 사이트를 고르기 전에 확인할 것</a>에 정리해 두었습니다.</div>
+
+  <h2>맥에서 자주 걸리는 것들</h2>
+
+  <h3>확장자가 안 보입니다</h3>
+
+  <p>맥은 기본적으로 파일 확장자를 숨깁니다. hwp인지 hwpx인지 docx인지 구분이 안 되면, 파인더에서 <strong>파인더 → 설정 → 고급 → 「모든 파일 확장자 보기」</strong>를 켜면 됩니다.</p>
+
+  <h3>글꼴이 달라 보입니다</h3>
+
+  <p>한글 문서는 보통 윈도우에 기본으로 깔린 글꼴(바탕, 굴림, 맑은 고딕 등)을 씁니다. 맥에는 그 글꼴이 없어서 비슷한 다른 글꼴로 대체되어 표시됩니다. <strong>내용이 잘못된 것이 아니라 글꼴만 바뀐 것</strong>입니다. 모양까지 그대로 봐야 한다면 PDF로 변환해서 보세요.</p>
+
+  <h3>카톡·메일로 받은 파일이 안 열립니다</h3>
+
+  <p>첨부를 먼저 <strong>다운로드 폴더에 저장</strong>한 다음 여세요. 미리보기 화면에서 바로 열려고 하면 맥이 형식을 몰라 실패하는 경우가 많습니다. 저장한 뒤에는 <a href="/">이 사이트</a>에 끌어다 놓으면 열립니다.</p>
+
+  <h2>자주 묻는 것</h2>
+
+  <details>
+    <summary>맥북에서 docx를 hwp로 바꾸는 무료 방법이 정말 없나요?</summary>
+    <p>저희가 확인한 범위에서는 "버튼 하나로 정확하게" 되는 무료 방법을 찾지 못했습니다. 내용만 옮기는 것(방법 2)은 무료이고 확실하지만 서식은 다시 잡아야 합니다. 서식까지 살리려면 한컴 공식 제품을 확인해 보세요.</p>
+  </details>
+  <details>
+    <summary>반대로 hwp를 docx로 바꾸는 건 왜 무료인가요?</summary>
+    <p>hwp를 읽는 방법이 공개되어 있어 브라우저 안에서도 처리할 수 있기 때문입니다. 반대로 hwp 파일을 규격에 맞게 새로 써 내는 일은 훨씬 까다롭습니다.</p>
+  </details>
+  <details>
+    <summary>변환한 docx를 다시 hwp로 되돌리면 원본과 같아지나요?</summary>
+    <p>같아지지 않습니다. 변환을 한 번 거칠 때마다 모양 정보가 조금씩 줄어듭니다. 원본 hwp가 남아 있다면 그것을 쓰세요.</p>
+  </details>
+  <details>
+    <summary>아이패드나 아이폰에서도 되나요?</summary>
+    <p>hwp를 보는 것과 docx·PDF로 내보내는 것은 됩니다. <a href="/guide/iphone/">아이폰·아이패드에서 hwp 파일 여는 법</a>에 따로 정리했습니다.</p>
+  </details>
+  <details>
+    <summary>파일이 어디론가 전송되나요?</summary>
+    <p>이 사이트에서 여는 문서는 서버로 올라가지 않습니다. 브라우저 안에서만 처리되고, 인터넷 연결이 끊겨도 이미 열린 문서는 계속 볼 수 있습니다.</p>
+  </details>
+
+  <div class="related">
+    <h2>같이 보면 좋은 글</h2>
+    <ul>
+      <li><a href="/guide/mac/">맥북에서 한글파일(hwp) 여는 법</a></li>
+      <li><a href="/guide/word/">hwp Word 변환 — 설치 없이 무료로 바꾸는 법</a></li>
+      <li><a href="/guide/pdf/">한글파일 PDF 변환 — 깨짐 없이 저장하는 법</a></li>
+      <li><a href="/guide/pdf-to-hwp/">PDF를 hwp로 변환하는 법</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>이 문서는 한글과컴퓨터와 관련이 없습니다. 제품명은 각 소유자의 상표입니다.</p>
+    <p><a href="/">HWP 뷰어 홈으로</a> · <a href="/about/">소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/contact/">문의</a></p>
+  </footer>
+</div>
+</body>
+</html>

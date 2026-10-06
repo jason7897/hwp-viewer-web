@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>한글 파일 수정하기 — 한컴 없이 어디까지 되나</title>
+<meta name="description" content="한글파일(hwp)을 고치는 방법. 한컴오피스 없이 되는 것과 안 되는 것의 경계를 정확히 나누고, 제출 형식에 따라 어떤 길을 골라야 하는지 정리했습니다.">
+<meta property="og:title" content="한글 파일 수정하기 — 한컴 없이 어디까지 되나">
+<meta property="og:description" content="되는 것과 안 되는 것의 경계를 정확히 나눴습니다.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://hwp-web.pages.dev/guide/hwp-edit/">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"HWP 뷰어","item":"https://hwp-web.pages.dev/"},{"@type":"ListItem","position":2,"name":"가이드","item":"https://hwp-web.pages.dev/guide/"},{"@type":"ListItem","position":3,"name":"한글 파일 수정하기","item":"https://hwp-web.pages.dev/guide/hwp-edit/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"한글 파일 수정하기 — 한컴 없이 어디까지 되나","mainEntityOfPage":{"@type":"WebPage","@id":"https://hwp-web.pages.dev/guide/hwp-edit/"},"inLanguage":"ko","author":{"@type":"Organization","name":"HWP 뷰어","url":"https://hwp-web.pages.dev/"},"publisher":{"@type":"Organization","name":"HWP 뷰어","url":"https://hwp-web.pages.dev/"},"description":"한글파일(hwp)을 고치는 방법. 한컴오피스 없이 되는 것과 안 되는 것의 경계를 정확히 나누고, 제출 형식에 따라 어떤 길을 골라야 하는지 정리했습니다.","datePublished":"2026-10-07"}</script>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="sitenav" aria-label="사이트 메뉴">
+    <a class="home" href="/">HWP 뷰어</a>
+    <a href="/guide/" aria-current="page">가이드</a>
+    <a href="/about/">소개</a>
+    <a href="/contact/">문의</a>
+  </nav>
+  <div class="crumb"><a href="/">HWP 뷰어</a> › 가이드 › 한글 파일 수정</div>
+
+  <h1>한글 파일 수정하기</h1>
+  <p class="lede">「한글 파일을 고쳐야 하는데 한컴오피스가 없다」. 이 상황에서 가장 많이 헛수고하는 지점은 <strong>안 되는 길을 오래 붙잡는 것</strong>입니다. 되는 것과 안 되는 것을 먼저 나누면 길이 짧아집니다.</p>
+  <div class="meta">2026-10-07 작성</div>
+
+  <h2>한 줄로 말하면</h2>
+
+  <div class="note"><b>「고친다」는 두 가지 뜻입니다.</b> <strong>내용을 바꿔서 어떤 형식으로든 내는 것</strong>과, <strong>hwp 파일 자체를 고쳐서 다시 hwp로 저장하는 것</strong>. 앞은 무료로 됩니다. 뒤는 한컴 공식 제품이 필요합니다. <strong>대부분의 사람이 필요한 건 앞쪽입니다.</strong></div>
+
+  <div class="scrollx">
+  <table>
+    <thead><tr><th>하려는 것</th><th>한컴 필요?</th><th>방법</th></tr></thead>
+    <tbody>
+      <tr><td>내용만 확인</td><td>아니오</td><td><a href="/">여기서 바로</a></td></tr>
+      <tr><td>글자를 고쳐 PDF로 제출</td><td><strong>아니오</strong></td><td>Word로 내보내 고치고 PDF 저장</td></tr>
+      <tr><td>글자를 고쳐 워드로 제출</td><td><strong>아니오</strong></td><td>Word로 내보내 고치고 그대로 제출</td></tr>
+      <tr><td>표 값만 바꿔 계산</td><td><strong>아니오</strong></td><td><a href="/guide/hwp-to-excel/">엑셀로 옮겨</a> 계산</td></tr>
+      <tr><td>일부 문장만 복사해 다른 문서에</td><td><strong>아니오</strong></td><td>텍스트로 내보내기</td></tr>
+      <tr><td><strong>hwp 그대로 고쳐 hwp로 저장</strong></td><td>예</td><td>한컴 공식 제품</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>1. 제출 형식부터 확인하세요</h2>
+
+  <p>순서를 거꾸로 밟는 분이 많습니다. 한컴을 어떻게 구할지부터 고민하다가, <strong>알고 보니 PDF를 받는 곳이었던 경우</strong>가 흔합니다.</p>
+
+  <ul>
+    <li><strong>PDF를 받는다</strong> → 한컴 필요 없습니다. 아래 2번으로</li>
+    <li><strong>워드를 받는다</strong> → 한컴 필요 없습니다. 아래 2번으로</li>
+    <li><strong>인쇄해서 낸다</strong> → 한컴 필요 없습니다. <a href="/guide/pdf/">PDF로 저장</a>해 인쇄</li>
+    <li><strong>hwp 파일만 받는다</strong> → 아래 3번으로</li>
+  </ul>
+
+  <h2>2. 한컴 없이 고치는 길</h2>
+
+  <ol>
+    <li><a href="/">홈</a>에 hwp·hwpx 파일을 끌어다 놓습니다</li>
+    <li><strong>「Word(.docx)로 저장」</strong>을 누릅니다</li>
+    <li>받은 docx를 워드·페이지스·구글 문서에서 엽니다</li>
+    <li>내용을 고칩니다</li>
+    <li>제출 형식에 맞게 저장합니다 (PDF 또는 docx)</li>
+  </ol>
+
+  <div class="note ok"><b>서식은 조금 달라집니다.</b> 글자와 문단, 표의 값은 그대로 넘어가지만 쪽 나눔 위치·여백·글꼴 크기가 미세하게 바뀔 수 있습니다. <strong>제출 전에 PDF를 한 번 열어 전체를 훑어보세요.</strong> 모양이 중요한 문서라면 특히 그렇습니다.</div>
+
+  <p>파일은 서버로 올라가지 않습니다. 고치는 작업도 내 기기 안에서 하므로 회사 문서나 개인정보가 든 문서도 외부로 나가지 않습니다.</p>
+
+  <h2>3. hwp 파일 자체를 고쳐야 한다면</h2>
+
+  <p><strong>이 사이트는 hwp를 읽고 다른 형식으로 내보내는 것까지만 합니다. hwp를 만들어 내지는 못합니다.</strong> 선택지는 셋입니다.</p>
+
+  <ul>
+    <li><strong>한컴 공식 제품</strong> — 가격과 지원 범위는 바뀌므로 공식 사이트에서 직접 확인하세요. 맥용도 있습니다</li>
+    <li><strong>한컴이 깔린 PC를 잠깐 쓰기</strong> — 회사·학교·도서관 PC에 있는 경우가 많습니다. 파일 하나 옮기는 편이 빠를 때가 많습니다</li>
+    <li><strong>제출처에 묻기</strong> — 「hwp로 내라」가 관성으로 적혀 있는 경우가 있습니다. PDF도 받는지 한 번 물어보는 것이 프로그램을 구하는 것보다 빠를 수 있습니다</li>
+  </ul>
+
+  <h2>수정이 안 될 때 — 원인별로</h2>
+
+  <h3>「읽기 전용」으로 열립니다</h3>
+
+  <p>파일 속성이 읽기 전용으로 되어 있거나, 다른 프로그램이 그 파일을 잡고 있는 경우입니다. 파일을 복사해 사본을 만들고 사본을 여세요. 네트워크 드라이브나 메일 첨부에서 바로 연 경우에도 자주 생깁니다 — <strong>먼저 내 PC에 저장한 뒤 여세요.</strong></p>
+
+  <h3>암호가 걸려 있습니다</h3>
+
+  <p>암호로 보호된 문서는 암호를 알아야 열립니다. 보낸 사람에게 확인하세요. <strong>이 사이트는 암호 해제를 지원하지 않습니다.</strong></p>
+
+  <h3>배포용 문서라 편집이 막혀 있습니다</h3>
+
+  <p>한글에는 문서를 읽기만 하도록 잠가서 배포하는 기능이 있습니다. 이건 고장이 아니라 <strong>만든 사람이 의도적으로 건 보호</strong>입니다. 고쳐야 한다면 만든 사람에게 편집 가능한 원본을 요청하는 것이 맞는 길입니다.</p>
+
+  <div class="note"><b>보호를 푸는 방법은 다루지 않습니다.</b> 문서 보호는 만든 사람의 의사표시입니다. 이 사이트는 그것을 우회하는 방법을 안내하지 않습니다. 정당하게 편집해야 하는 문서라면 원본을 가진 쪽에 요청하세요.</div>
+
+  <h3>글자가 깨져 보입니다</h3>
+
+  <p>수정 문제가 아니라 <strong>글꼴 문제</strong>인 경우가 많습니다. 한글 문서는 보통 윈도우 기본 글꼴을 쓰는데 그 글꼴이 없는 기기에서는 다른 글꼴로 대체됩니다. 내용은 멀쩡합니다.</p>
+
+  <h2>고치기 전에 백업하세요</h2>
+
+  <p>형식을 바꿔가며 작업하다 보면 원본을 덮어쓰는 사고가 납니다. <strong>원본 hwp는 손대지 말고 사본으로 작업하세요.</strong> 날린 경우라면 <a href="/guide/autosave/">한글 자동저장 파일 찾기</a>에 되찾는 순서를 적어뒀습니다.</p>
+
+  <h2>자주 묻는 것</h2>
+
+  <details>
+    <summary>이 사이트에서 바로 고칠 수는 없나요?</summary>
+    <p>없습니다. 열어서 보고 다른 형식으로 내보내는 것까지만 합니다. 편집은 내보낸 파일을 워드·구글 문서 등에서 하시면 됩니다.</p>
+  </details>
+  <details>
+    <summary>워드로 바꿔서 고치면 원본과 많이 달라지나요?</summary>
+    <p>글자·문단·표의 값은 그대로 갑니다. 쪽 나눔이나 여백이 조금 달라질 수 있어서 제출 전 확인이 필요합니다. 내용 전달이 목적이면 문제없고, 모양이 중요한 제출물이면 PDF를 쓰세요.</p>
+  </details>
+  <details>
+    <summary>고친 뒤에 다시 hwp로 돌릴 수 있나요?</summary>
+    <p>이 사이트에서는 못 합니다. hwp 파일을 만들어 내려면 한컴 공식 제품이 필요합니다. <a href="/guide/mac-docx/">맥북에서 hwp와 docx 바꾸기</a>에 방향별 차이를 정리했습니다.</p>
+  </details>
+  <details>
+    <summary>맥북에서도 되나요?</summary>
+    <p>됩니다. 브라우저만 있으면 기기를 가리지 않습니다. <a href="/guide/mac-free/">맥북에서 한글 무료로 쓰는 법</a>에 맥 기준으로 따로 정리했습니다.</p>
+  </details>
+  <details>
+    <summary>표만 고치고 싶습니다</summary>
+    <p>표는 엑셀로 옮겨 계산한 뒤 값을 옮기는 편이 빠릅니다. <a href="/guide/hwp-to-excel/">한글 표를 엑셀로 옮기기</a>를 보세요.</p>
+  </details>
+
+  <div class="related">
+    <h2>같이 보면 좋은 글</h2>
+    <ul>
+      <li><a href="/guide/open-hwp/">한글파일 열기 — 안 열릴 때 기기별로</a></li>
+      <li><a href="/guide/word/">hwp Word 변환 — 설치 없이 무료로 바꾸는 법</a></li>
+      <li><a href="/guide/form-hwp/">hwp 양식 파일 작성하기</a></li>
+      <li><a href="/guide/autosave/">한글 자동저장 파일 찾기</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>이 문서는 한글과컴퓨터와 관련이 없습니다. 제품명은 각 소유자의 상표입니다.</p>
+    <p><a href="/">HWP 뷰어 홈으로</a> · <a href="/about/">소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/contact/">문의</a></p>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PDF를 hwp로 변환하는 법 — 목적별로 갈리는 방법</title>
+<meta name="description" content="PDF를 한글파일(hwp)로 바꾸는 방법. 완벽한 복원이 안 되는 이유와, 텍스트만 필요할 때·편집이 필요할 때·스캔본일 때 각각 어떤 방법을 써야 하는지 정리했습니다.">
+<meta property="og:title" content="PDF를 hwp로 변환하는 법">
+<meta property="og:description" content="완벽한 복원은 안 됩니다. 목적에 따라 방법이 갈립니다.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://hwp-web.pages.dev/guide/pdf-to-hwp/">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"HWP 뷰어","item":"https://hwp-web.pages.dev/"},{"@type":"ListItem","position":2,"name":"가이드","item":"https://hwp-web.pages.dev/guide/"},{"@type":"ListItem","position":3,"name":"PDF를 hwp로 변환하는 법","item":"https://hwp-web.pages.dev/guide/pdf-to-hwp/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PDF를 hwp로 변환하는 법","mainEntityOfPage":{"@type":"WebPage","@id":"https://hwp-web.pages.dev/guide/pdf-to-hwp/"},"inLanguage":"ko","author":{"@type":"Organization","name":"HWP 뷰어","url":"https://hwp-web.pages.dev/"},"publisher":{"@type":"Organization","name":"HWP 뷰어","url":"https://hwp-web.pages.dev/"},"description":"PDF를 한글파일(hwp)로 바꾸는 방법. 완벽한 복원이 안 되는 이유와, 텍스트만 필요할 때·편집이 필요할 때·스캔본일 때 각각 어떤 방법을 써야 하는지 정리했습니다.","datePublished":"2026-09-22"}</script>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="sitenav" aria-label="사이트 메뉴">
+    <a class="home" href="/">HWP 뷰어</a>
+    <a href="/guide/" aria-current="page">가이드</a>
+    <a href="/about/">소개</a>
+    <a href="/contact/">문의</a>
+  </nav>
+  <div class="crumb"><a href="/">HWP 뷰어</a> › 가이드 › PDF를 hwp로 변환</div>
+
+  <h1>PDF를 hwp로 변환하는 법</h1>
+  <p class="lede">먼저 알아두실 것이 있습니다. PDF를 원래 한글 문서로 되돌리는 일은 완전하게는 되지 않습니다. 대신 무엇을 하려는지에 따라 쓸 만한 방법이 갈립니다.</p>
+  <div class="meta">2026-09-22 작성</div>
+
+  <div class="note"><b>이 사이트에서는 PDF → hwp 변환을 지원하지 않습니다.</b> 반대 방향인 hwp·hwpx를 PDF로 바꾸는 것은 <a href="/">여기서 바로</a> 됩니다. 이 글은 역방향이 필요하신 분을 위해 실제로 쓸 수 있는 방법만 정리했습니다.</div>
+
+  <h2>왜 완벽하게 되돌아가지 않나</h2>
+
+  <p>한글 문서에는 문단이 어디서 나뉘고, 표의 어느 칸이 합쳐져 있고, 이 글자가 제목인지 본문인지 하는 <strong>구조 정보</strong>가 들어 있습니다. PDF로 저장하는 순간 그 구조가 대부분 사라집니다. 남는 것은 "이 위치에 이 글자를 이 크기로 그린다"는 <strong>그림에 가까운 지시</strong>입니다.</p>
+
+  <p>그래서 PDF를 다시 문서로 읽어 들이면, 프로그램이 글자들의 위치를 보고 문단과 표를 <em>추측</em>합니다. 잘 맞을 때도 있지만 표가 통째로 텍스트 상자로 바뀌거나, 줄마다 문단이 끊기거나, 글꼴이 다른 것으로 대체되는 일이 흔합니다.</p>
+
+  <p>한 문장으로 줄이면 이렇습니다. <strong>PDF는 인쇄물의 사진 같은 것이고, 사진에서 원고를 복원하는 일에는 한계가 있습니다.</strong></p>
+
+  <div class="note ok"><b>원본 hwp가 있는지 먼저 확인하세요.</b> 메일함, 메신저 대화, 공유 폴더, 휴지통. 보낸 사람에게 한 번 물어보는 것이 가장 빠르고 정확합니다. 변환으로 씨름한 시간보다 짧게 끝나는 경우가 많습니다.</div>
+
+  <h2>무엇이 필요하신가요</h2>
+
+  <div class="scrollx">
+  <table>
+    <thead><tr><th>목적</th><th>방법</th><th>결과</th></tr></thead>
+    <tbody>
+      <tr><td>내용(글)만 옮기면 됨</td><td>PDF에서 텍스트 복사</td><td>가장 확실. 서식은 버림</td></tr>
+      <tr><td>표를 살려야 함</td><td>PDF 뷰어에서 표 영역만 복사</td><td>칸이 어긋나면 손보기</td></tr>
+      <tr><td>문서를 고쳐야 함</td><td>한컴오피스의 PDF 불러오기</td><td>서식이 상당히 달라짐</td></tr>
+      <tr><td>스캔한 종이 문서</td><td>OCR(글자 인식)이 먼저</td><td>오타 검수 필수</td></tr>
+      <tr><td>모양 그대로 유지</td><td>방법 없음</td><td>원본을 구하는 수밖에</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>방법 1. 텍스트만 가져오기 — 가장 확실합니다</h2>
+
+  <p>제출용 양식에 내용을 옮겨 적거나, 문장을 재활용하는 정도라면 이 방법이 제일 낫습니다. 변환 프로그램을 거치지 않으니 글자가 틀릴 일도 없습니다.</p>
+
+  <ol>
+    <li>PDF를 뷰어(크롬, 엣지, 아크로뱃 등)로 엽니다</li>
+    <li>필요한 부분을 마우스로 끌어 선택하고 복사합니다</li>
+    <li>한글 문서에 붙여 넣습니다</li>
+  </ol>
+
+  <p>붙여 넣을 때 <strong>「텍스트만 붙이기」</strong>를 쓰면 PDF에서 딸려 오는 글꼴·색·간격이 따라붙지 않아 뒷정리가 훨씬 줍니다. 한글에서는 붙여넣기 단축키 대신 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd>를 누르면 붙이기 형식을 고를 수 있습니다.</p>
+
+  <p>줄 끝마다 문단이 끊겨 들어오는 경우가 있습니다. 이럴 때는 한글의 찾아 바꾸기에서 문단 기호를 찾아 지우면 한 번에 정리됩니다.</p>
+
+  <h2>방법 2. 한컴오피스로 PDF 불러오기</h2>
+
+  <p>문서를 실제로 편집해야 한다면 한컴오피스에서 PDF를 직접 여는 기능을 쓰게 됩니다. 한글에는 PDF를 문서로 변환해 불러오는 기능이 들어 있습니다.</p>
+
+  <div class="note"><b>버전에 따라 다릅니다.</b> 메뉴 위치와 지원 범위가 한컴오피스 버전마다 달라, 이 글에서 특정 메뉴 경로를 단정해 적지 않습니다. 쓰고 계신 버전에서 「파일 → 불러오기」 계열 메뉴에 PDF가 있는지 확인해 보세요. 없으면 방법 1이나 3으로 가시는 편이 빠릅니다.</div>
+
+  <p>불러오기가 되더라도 결과는 기대보다 거칠 수 있습니다. 특히 다음 항목은 거의 매번 손봐야 합니다.</p>
+
+  <ul>
+    <li><strong>표</strong> — 칸 경계가 어긋나거나 텍스트 상자로 흩어짐</li>
+    <li><strong>글꼴</strong> — 원본 글꼴이 없으면 다른 것으로 대체</li>
+    <li><strong>머리말·꼬리말·쪽번호</strong> — 본문에 섞여 들어옴</li>
+    <li><strong>단 나누기, 표 안의 표</strong> — 구조가 풀림</li>
+  </ul>
+
+  <h2>방법 3. Word를 거쳐 가기</h2>
+
+  <p>PDF를 Word로 바꾼 다음 그 Word 파일을 한글에서 여는 우회로도 있습니다. PDF에서 Word로 가는 변환은 도구가 많고 결과도 비교적 나은 편이라, 한글에서 PDF가 직접 안 열릴 때 쓸 만합니다.</p>
+
+  <p>다만 단계가 하나 늘어난 만큼 서식이 틀어질 여지도 늘어납니다. <strong>중간 결과를 한 번 열어보고</strong> 다음 단계로 넘어가시는 편이 안전합니다.</p>
+
+  <div class="note"><b>업로드 방식 변환 사이트를 쓰실 때.</b> PDF를 서버로 올려 변환해 주는 사이트가 많습니다. 편리하지만 파일이 회사 밖으로 나갑니다. 계약서, 인사 자료, 개인정보가 담긴 문서라면 사내 규정을 먼저 확인하시는 편이 좋습니다. 업로드 없이 처리되는지, 업로드한 파일을 언제 지우는지가 사이트마다 다릅니다.</div>
+
+  <h2>방법 4. 스캔한 PDF라면 OCR이 먼저입니다</h2>
+
+  <p>종이 문서를 스캔했거나 사진으로 찍어 만든 PDF는 겉보기에는 글자처럼 보여도 실제로는 <strong>그림</strong>입니다. 마우스로 글자를 선택할 수 없다면 이 경우입니다.</p>
+
+  <p>이런 파일은 먼저 <strong>OCR</strong>, 즉 그림 속 글자를 읽어 텍스트로 바꾸는 과정을 거쳐야 합니다. OCR을 지원하는 PDF 도구나 문서 인식 기능을 쓰면 됩니다.</p>
+
+  <p>OCR 결과는 반드시 눈으로 검수하셔야 합니다. 비슷하게 생긴 글자가 뒤바뀌는 일이 자주 있고, 특히 <strong>숫자·날짜·계좌번호·사업자번호</strong>는 틀리면 곤란한 값이라 한 글자씩 확인하는 편이 안전합니다.</p>
+
+  <h2>반대 방향은 훨씬 쉽습니다</h2>
+
+  <p>hwp나 hwpx를 PDF로 바꾸는 것은 설치 없이 바로 됩니다. 구조가 있는 문서에서 모양이 고정된 형식으로 가는 방향이라 잃는 것이 거의 없습니다.</p>
+
+  <a class="cta" href="/">
+    <div class="t">hwp·hwpx를 PDF로 바꾸기 →</div>
+    <div class="d">설치 없이 브라우저에서. 파일은 서버로 올라가지 않습니다.</div>
+  </a>
+
+  <h2>자주 묻는 것</h2>
+
+  <details>
+    <summary>PDF를 hwp로 바꿔주는 무료 사이트는 없나요?</summary>
+    <p>변환을 제공하는 사이트는 있습니다. 대부분 파일을 서버에 업로드하는 방식이고, 결과 품질은 원본 PDF가 어떻게 만들어졌는지에 따라 크게 달라집니다. 업무 문서라면 파일이 외부로 나가도 되는지 먼저 확인하세요.</p>
+  </details>
+  <details>
+    <summary>변환했더니 표가 다 깨졌습니다</summary>
+    <p>PDF에는 표가 "표"로 저장되어 있지 않고 선과 글자로만 남아 있어, 변환 프로그램이 위치를 보고 표를 다시 조립합니다. 칸이 많거나 병합된 표일수록 어긋납니다. 표만 따로 복사해 한글에서 새로 표를 만들고 값만 채우는 편이 빠른 경우가 많습니다.</p>
+  </details>
+  <details>
+    <summary>글자가 선택이 안 됩니다</summary>
+    <p>스캔본이거나 이미지로 저장된 PDF입니다. OCR을 거쳐야 글자를 뽑을 수 있습니다. 이 경우 어떤 변환 도구를 써도 OCR 없이는 텍스트가 나오지 않습니다.</p>
+  </details>
+  <details>
+    <summary>원본 hwp를 꼭 받아야 하나요?</summary>
+    <p>고쳐야 하는 문서라면 그게 가장 빠릅니다. 변환 결과를 손보는 시간이 보통 더 깁니다. 읽기만 하면 되는 문서라면 굳이 변환하지 않고 PDF 그대로 보셔도 됩니다.</p>
+  </details>
+
+  <div class="related">
+    <h2>같이 보면 좋은 글</h2>
+    <ul>
+      <li><a href="/guide/pdf/">한글파일 PDF 변환 — 깨짐 없이 저장하는 법</a></li>
+      <li><a href="/guide/word/">hwp Word 변환 — 설치 없이 무료로 바꾸는 법</a></li>
+      <li><a href="/guide/hwpx/">hwpx 파일 열기 — 안 열릴 때 hwp로 변환하는 법</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>이 문서는 한글과컴퓨터와 관련이 없습니다. 제품명은 각 소유자의 상표입니다.</p>
+    <p><a href="/">HWP 뷰어 홈으로</a> · <a href="/about/">소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/contact/">문의</a></p>
+  </footer>
+</div>
+</body>
+</html>

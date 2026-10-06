@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>문의 — HWP 뷰어</title>
+<meta name="description" content="HWP 뷰어 오류 제보, 기능 요청, 기타 문의를 받는 곳입니다.">
+<link rel="canonical" href="https://hwp-web.pages.dev/contact/">
+<link rel="stylesheet" href="../guide/style.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav" aria-label="사이트 메뉴">
+    <a class="home" href="/">HWP 뷰어</a>
+    <a href="/guide/">가이드</a>
+    <a href="/about/">소개</a>
+    <a href="/contact/" aria-current="page">문의</a>
+  </nav>
+  <div class="crumb"><a href="/">HWP 뷰어</a> › 문의</div>
+
+  <h1>문의</h1>
+  <p class="lede">오류 제보, 기능 요청, 그 밖의 문의를 받습니다.</p>
+
+  <h2>이메일</h2>
+  <p id="mail-line">
+    <noscript>자바스크립트를 켜시면 주소가 표시됩니다. 켜기 어려우시면 아래 안내를 참고해 주세요.</noscript>
+  </p>
+  <p id="mail-fallback" style="color:var(--ink-3);font-size:14.5px">
+    주소가 보이지 않으면 <strong>wotjdwleo777</strong> 뒤에 <strong>@gmail.com</strong> 을 붙여 보내 주십시오.
+  </p>
+
+  <div class="note"><b>개인이 혼자 운영하는 사이트입니다.</b> 답장이 며칠 걸릴 수 있습니다. 급한 업무용 문의는 받기 어렵다는 점을 미리 말씀드립니다.</div>
+
+  <h2>이런 내용을 보내 주시면 도움이 됩니다</h2>
+
+  <h3>파일이 안 열릴 때</h3>
+  <p>가장 많은 문의입니다. 아래를 함께 적어 주시면 원인을 훨씬 빨리 찾을 수 있습니다.</p>
+  <ul>
+    <li>화면에 표시된 안내 문구 (예: "암호가 걸린 문서입니다")</li>
+    <li>파일 확장자 — hwp인지 hwpx인지</li>
+    <li>사용하신 기기와 브라우저 (예: 맥북 사파리, 아이폰 크롬)</li>
+  </ul>
+
+  <div class="note hot" style="border-left-color:var(--warn);background:var(--warn-soft)">
+    <b>문제가 생긴 문서 파일은 보내지 마십시오.</b>
+    업무 문서나 개인정보가 담긴 서류일 가능성이 높고, 저는 그 책임을 질 수 있는 구조를 갖추고 있지 않습니다.
+    증상만 적어 주셔도 대부분 원인을 찾을 수 있습니다. 꼭 파일이 필요한 경우라면, 내용을 지우고
+    문제가 재현되는 최소한의 형태로 새로 만들어 보내 주십시오.
+  </div>
+
+  <h3>기능 요청</h3>
+  <p>필요하신 기능과, 그 기능이 어떤 상황에서 필요한지 함께 적어 주시면 우선순위를 판단하는 데 도움이 됩니다.</p>
+
+  <h3>잘못된 내용 제보</h3>
+  <p>가이드 글에 틀린 내용이 있으면 알려 주십시오. 확인 후 고치고, 어떻게 고쳤는지 해당 글에 남기겠습니다.</p>
+
+  <h2>답변드리기 어려운 것</h2>
+  <ul>
+    <li>한컴오피스 자체의 사용법 — 이 사이트는 한글과컴퓨터와 관련이 없습니다</li>
+    <li>특정 문서의 내용에 대한 해석이나 대필</li>
+    <li>문서 복구 의뢰 — 손상된 파일을 되살리는 기능은 없습니다</li>
+  </ul>
+
+  <footer>
+    <p><a href="/">홈</a> · <a href="/about/">소개</a> · <a href="/privacy/">개인정보처리방침</a></p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var user = ["wotjdwleo", "777"].join("");
+  var host = ["gmail", "com"].join(".");
+  var addr = user + String.fromCharCode(64) + host;
+  var line = document.getElementById("mail-line");
+  if (!line) return;
+  var a = document.createElement("a");
+  a.href = "mailto:" + addr + "?subject=" + encodeURIComponent("[HWP 뷰어] 문의");
+  a.textContent = addr;
+  a.style.fontSize = "18px";
+  a.style.fontWeight = "700";
+  line.textContent = "";
+  line.appendChild(a);
+  var fb = document.getElementById("mail-fallback");
+  if (fb) fb.hidden = true;
+})();
+</script>
+</body>
+</html>

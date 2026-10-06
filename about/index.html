@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>소개 — HWP 뷰어</title>
+<meta name="description" content="HWP 뷰어는 한글 문서를 설치 없이 브라우저에서 여는 도구입니다. 만든 목적과 동작 방식, 한계를 밝힙니다.">
+<link rel="canonical" href="https://hwp-web.pages.dev/about/">
+<link rel="stylesheet" href="../guide/style.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav" aria-label="사이트 메뉴">
+    <a class="home" href="/">HWP 뷰어</a>
+    <a href="/guide/">가이드</a>
+    <a href="/about/" aria-current="page">소개</a>
+    <a href="/contact/">문의</a>
+  </nav>
+  <div class="crumb"><a href="/">HWP 뷰어</a> › 소개</div>
+
+  <h1>소개</h1>
+  <p class="lede">HWP 뷰어는 한글 문서(.hwp/.hwpx)를 프로그램 설치 없이 브라우저에서 여는 도구입니다.</p>
+
+  <h2>왜 만들었나</h2>
+  <p>한국에서 관공서·학교·회사 문서는 대부분 한글 파일로 오갑니다. 그런데 한컴오피스가 없는 환경 — 맥, 아이폰, 안드로이드, 회사 밖 PC — 에서는 그 파일을 열 방법이 마땅치 않습니다. 기존 변환 사이트들은 대부분 파일을 서버에 올리도록 요구하는데, 업무 문서나 개인정보가 담긴 서류를 남의 서버에 올리는 것이 늘 마음에 걸렸습니다.</p>
+  <p>그래서 <strong>파일을 서버로 보내지 않는</strong> 뷰어를 만들었습니다.</p>
+
+  <h2>어떻게 동작하나</h2>
+  <p>문서를 해석하는 코드가 이용자의 브라우저 안에서 실행됩니다. 파일을 읽는 것도, 화면에 그리는 것도, PDF·Word로 바꾸는 것도 전부 이용자의 컴퓨터에서 일어납니다. 이 사이트에는 파일을 받는 서버가 존재하지 않습니다.</p>
+  <p>확인하고 싶다면 브라우저 개발자 도구의 네트워크 탭을 열어 두고 파일을 올려 보십시오. 페이지와 해석 코드를 내려받는 요청 외에는 아무것도 오가지 않습니다.</p>
+
+  <h2>무엇을 할 수 있나</h2>
+  <ul>
+    <li>hwp(한글 5.0 이상) 및 hwpx 문서 열기</li>
+    <li>표(셀 병합 포함)·이미지·글자 서식 표시</li>
+    <li>PDF로 저장, Word(.docx)로 저장, HTML·마크다운·텍스트로 내려받기</li>
+    <li>hwp를 hwpx로 변환</li>
+  </ul>
+
+  <h2>무엇을 할 수 없나</h2>
+  <p>솔직하게 밝히는 편이 낫다고 생각합니다.</p>
+  <ul>
+    <li><strong>암호가 걸린 문서</strong>, <strong>배포용 문서(ViewText)</strong>, <strong>한글 3.0 이하</strong>는 열 수 없습니다</li>
+    <li>차트·글맵시·OLE 개체는 표시되지 않습니다</li>
+    <li>머리말·꼬리말·각주는 본문 흐름에 이어서 나옵니다</li>
+    <li>hwp 형식으로 <strong>되돌려 저장할 수 없습니다</strong>. 편집이 필요하면 한컴오피스가 필요합니다</li>
+  </ul>
+
+  <h2>사용한 오픈소스</h2>
+  <p>문서 해석에 <a href="https://www.npmjs.com/package/hwp-convert" target="_blank" rel="noopener">hwp-convert</a>(MIT 라이선스)를 사용합니다. 한글과컴퓨터가 공개한 문서 형식 자료를 참고해 만들어진 오픈소스입니다. Word 변환에는 <a href="https://github.com/evidenceprime/html-docx-js" target="_blank" rel="noopener">html-docx-js</a>(MIT)를 사용합니다.</p>
+
+  <h2>한글과컴퓨터와의 관계</h2>
+  <p>이 사이트는 <strong>한글과컴퓨터와 아무런 관련이 없습니다.</strong> 공식 서비스가 아니며, 제휴·후원 관계도 없습니다. 한글, 한컴오피스, HWP는 각 소유자의 상표입니다.</p>
+
+  <h2>문의</h2>
+  <p>오류 제보와 기능 요청은 <a href="/contact/">문의 페이지</a>로 보내 주십시오.</p>
+
+  <footer>
+    <p><a href="/">홈</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/contact/">문의</a></p>
+  </footer>
+</div>
+</body>
+</html>

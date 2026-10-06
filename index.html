@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HWP 뷰어 — 한글파일 무료 변환 사이트 (설치 없이 온라인)</title>
+<meta name="description" content="hwp·hwpx 파일을 설치 없이 온라인에서 엽니다. 맥북·아이폰·안드로이드에서도 한글파일을 열고 PDF·Word로 변환하세요. 파일이 서버로 전송되지 않습니다.">
+<meta name="keywords" content="hwp 뷰어,hwp 파일 열기,hwp 변환,한글파일 pdf 변환,hwpx 안열림,맥에서 한글파일 열기,hwp 아이폰">
+<meta property="og:title" content="HWP 뷰어 — 설치 없이 한글파일 열기">
+<meta property="og:description" content="맥·아이폰·안드로이드에서도 hwp를 엽니다. PDF·Word로 변환. 파일은 서버로 올라가지 않습니다.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://hwp-web.pages.dev/">
+<meta name="google-site-verification" content="QZsVESPFdKfZ8z5bQr9fgUzsqsvs5REQnYdDz3cC-hg" />
+<meta name="naver-site-verification" content="4124ba7a63b766c7089fe0295000e613aaaf45ac" />
+<style>
+  :root{
+    --bg:#F2F1EC; --surface:#FBFAF7; --surface-2:#E7E5DD; --rule:#D6D3C8;
+    --ink:#1B1A17; --ink-2:#5A574E; --ink-3:#8A867A;
+    --accent:#1F5D4C; --accent-ink:#FBFAF7; --accent-soft:#DCEAE3;
+    --danger:#9E2B18; --danger-soft:#F5DFD9;
+    --warn:#87600A; --warn-soft:#F4E9CC;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"D2Coding",monospace;
+    --sans:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕",system-ui,-apple-system,sans-serif;
+    --serif:"Apple SD Gothic Neo","Malgun Gothic",serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#15171A; --surface:#1D2024; --surface-2:#262A2F; --rule:#31363C;
+      --ink:#E8E9E4; --ink-2:#A4A89D; --ink-3:#7C8077;
+      --accent:#6FC0A5; --accent-ink:#15171A; --accent-soft:#1B3730;
+      --danger:#E07A63; --danger-soft:#38201B;
+      --warn:#D8A63F; --warn-soft:#342A13;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#15171A; --surface:#1D2024; --surface-2:#262A2F; --rule:#31363C;
+    --ink:#E8E9E4; --ink-2:#A4A89D; --ink-3:#7C8077;
+    --accent:#6FC0A5; --accent-ink:#15171A; --accent-soft:#1B3730;
+    --danger:#E07A63; --danger-soft:#38201B;
+    --warn:#D8A63F; --warn-soft:#342A13;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.72;
+       -webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:44px 72px}
+
+  header .eyebrow{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;
+       text-transform:uppercase;color:var(--ink-3)}
+  h1{font-size:clamp(30px,6.4vw,42px);font-weight:800;letter-spacing:-.028em;line-height:1.12;
+     margin:10px 0 0;text-wrap:balance}
+  .lede{color:var(--ink-2);margin:13px 0 0;max-width:46ch;font-size:16.5px}
+  .privacy{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:var(--accent-soft);
+     color:var(--accent);border-radius:999px;padding:7px 15px;font-size:13.5px;font-weight:600}
+  .privacy svg{width:15px;height:15px;flex:none}
+
+  /* ── dropzone ───────────────────────────────── */
+  .drop{margin-top:30px;border:2px dashed var(--rule);border-radius:14px;background:var(--surface);
+     padding:48px 24px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s}
+  .drop:hover,.drop:focus-visible{border-color:var(--accent);background:var(--accent-soft)}
+  .drop.over{border-color:var(--accent);background:var(--accent-soft)}
+  .drop:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .drop .big{font-size:19px;font-weight:700;letter-spacing:-.01em}
+  .drop .small{color:var(--ink-3);font-size:13.5px;margin-top:7px}
+  .drop input{display:none}
+
+  /* ── status ─────────────────────────────────── */
+  .status{margin-top:20px;border-radius:9px;padding:14px 17px;font-size:14.5px;display:none}
+  .status.show{display:block}
+  .status.work{background:var(--surface-2);color:var(--ink-2)}
+  .status.err{background:var(--danger-soft);color:var(--danger);font-weight:600}
+  .status .hint{display:block;font-weight:400;margin-top:6px;color:var(--ink-2)}
+
+  /* ── result ─────────────────────────────────── */
+  .result{display:none;margin-top:34px}
+  .result.show{display:block}
+  .meta{display:grid;gap:9px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-bottom:20px}
+  .meta div{background:var(--surface-2);border-radius:8px;padding:11px 13px}
+  .meta .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+  .meta .v{font-size:15px;font-weight:600;margin-top:3px;word-break:break-all}
+
+  .bar{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:18px}
+  button.act{font-family:inherit;font-size:14px;font-weight:600;border-radius:8px;padding:9px 15px;
+     border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+  button.act:hover{border-color:var(--accent);color:var(--accent)}
+  button.act.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+  button.act.primary:hover{opacity:.9;color:var(--accent-ink)}
+  button.act:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .tabs{display:flex;gap:2px;border-bottom:1px solid var(--rule);margin-bottom:0}
+  .tabs button{font-family:inherit;font-size:14px;font-weight:600;background:none;border:none;
+     color:var(--ink-3);padding:10px 15px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+  .tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+  .tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+
+  .pane{display:none;background:var(--surface);border:1px solid var(--rule);border-top:none;
+     border-radius:0 0 11px 11px;padding:26px 28px;max-height:70vh;overflow:auto}
+  .pane.show{display:block}
+  .pane pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--mono);
+     font-size:13px;line-height:1.8;color:var(--ink)}
+
+  /* rendered hwp content */
+  #docview{font-family:var(--serif);font-size:15.5px;color:var(--ink)}
+  #docview p{margin:0 0 .65em}
+  #docview img{max-width:100%;height:auto}
+  #docview table{border-collapse:collapse;margin:1em 0;max-width:100%}
+  #docview td,#docview th{border:1px solid var(--rule);padding:6px 10px;vertical-align:top}
+  #docview th{background:var(--surface-2);font-weight:700}
+  .scrollx{overflow-x:auto}
+
+  footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-3)}
+  footer a{color:var(--ink-2)}
+  footer p{margin:0 0 8px}
+
+  .faq{margin-top:46px;border-top:2px solid var(--ink);padding-top:26px}
+  .faq h2{font-size:22px;font-weight:700;letter-spacing:-.018em;margin:0 0 16px}
+  .faq details{border-bottom:1px solid var(--rule);padding:13px 0}
+  .faq summary{cursor:pointer;font-weight:600;font-size:15px}
+  .faq summary::marker{color:var(--ink-3)}
+  .faq p{color:var(--ink-2);font-size:14.5px;margin:10px 0 2px}
+
+  @media print{
+    body{background:#fff;color:#000}
+    .wrap{max-width:none;padding:0}
+    header,.drop,.status,.bar,.tabs,.faq,footer,.meta,.privacy{display:none!important}
+    .pane{display:none!important;border:none;padding:0;max-height:none;overflow:visible;background:#fff}
+    .pane.show{display:block!important}
+    #docview{font-size:11pt;color:#000}
+    #docview td,#docview th{border:1px solid #999}
+  }
+/* 전역 메뉴 — 어느 페이지에서도 사이트 전체로 이동할 수 있게 한다 */
+.sitenav{display:flex;flex-wrap:wrap;gap:0 18px;align-items:baseline;
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--rule)}
+.sitenav a{font-size:14.5px;color:var(--ink-2);text-decoration:none}
+.sitenav a:hover{color:var(--accent);text-decoration:underline}
+.sitenav a.home{font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.sitenav a[aria-current="page"]{color:var(--accent);font-weight:700}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"정말 파일이 서버로 안 올라가나요?","acceptedAnswer":{"@type":"Answer","text":"올라가지 않습니다. 이 페이지는 파일을 받는 서버가 아예 없습니다. 한글 문서를 해석하는 코드가 브라우저 안에서 실행되고, 파일은 컴퓨터 밖으로 나가지 않습니다. 인터넷을 끊고 새로고침해도 한 번 열린 페이지에서는 계속 동작합니다."}},{"@type":"Question","name":"맥북에서 한글파일을 열 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"네. 맥북에 한컴오피스를 설치하지 않아도 됩니다. 사파리·크롬 어느 브라우저로 이 페이지를 열고 파일을 올리면 그대로 보입니다. 맥에서 hwp가 안 열려 곤란하셨다면 이 방법이 가장 빠릅니다."}},{"@type":"Question","name":"아이폰·안드로이드에서도 되나요?","acceptedAnswer":{"@type":"Answer","text":"됩니다. 휴대폰 브라우저에서 이 페이지를 열고 파일을 선택하면 됩니다. 메일이나 메신저로 받은 hwp 첨부파일도 「다른 앱으로 열기」에서 브라우저를 고르거나, 파일 앱에 저장한 뒤 올리시면 됩니다. 앱을 따로 설치하실 필요가 없습니다."}},{"@type":"Question","name":"hwpx 파일이 안 열립니다","acceptedAnswer":{"@type":"Answer","text":"hwpx는 비교적 최근에 생긴 한글 문서 형식이라, 구버전 한컴오피스나 오래된 뷰어에서는 열리지 않습니다. 이 페이지는 hwp와 hwpx를 모두 지원하므로 그대로 올리시면 됩니다. hwpx를 열어 PDF나 Word로 바꿔 두시면 다른 곳에서도 보실 수 있습니다."}},{"@type":"Question","name":"Word(.docx)로 바꿀 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"네. 문서를 연 뒤 「Word(.docx)로 저장」을 누르면 됩니다. 글자 서식과 표는 유지되지만, 복잡한 편집 요소는 위치가 달라질 수 있습니다. 원본 그대로가 중요하면 PDF 쪽이 더 정확합니다."}},{"@type":"Question","name":"PDF로 저장하려면?","acceptedAnswer":{"@type":"Answer","text":"「PDF로 저장 · 인쇄」를 누르면 인쇄 창이 뜹니다. 프린터 선택에서 PDF로 저장을 고르면 됩니다. 문서 내용만 인쇄되고 이 페이지의 버튼이나 설명은 빠집니다."}},{"@type":"Question","name":"안 열리는 파일이 있어요","acceptedAnswer":{"@type":"Answer","text":"암호가 걸린 문서, 배포용으로 저장된 문서(ViewText), 아주 오래된 한글 3.0 문서는 열 수 없습니다. 그 경우 어떤 이유인지 화면에 표시됩니다."}},{"@type":"Question","name":"표와 이미지도 그대로 나오나요?","acceptedAnswer":{"@type":"Answer","text":"표는 셀 병합까지 유지되고 이미지도 함께 표시됩니다. 다만 차트, 글맵시, OLE 개체는 지원하지 않고, 머리말·꼬리말·각주는 본문 흐름에 이어서 나옵니다."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"HWP 뷰어","url":"https://hwp-web.pages.dev/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","browserRequirements":"최신 브라우저 (설치 불필요)","inLanguage":"ko","description":"hwp·hwpx 한글파일을 설치 없이 브라우저에서 열고 PDF·Word로 변환합니다. 파일이 서버로 전송되지 않습니다.","featureList":["hwp 파일 열기","hwpx 파일 열기","PDF로 저장","Word(docx)로 변환","HWPX로 변환","텍스트·마크다운 내려받기"],"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"}}</script>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="sitenav" aria-label="사이트 메뉴">
+    <a class="home" href="/" aria-current="page">HWP 뷰어</a>
+    <a href="/guide/">가이드</a>
+    <a href="/about/">소개</a>
+    <a href="/contact/">문의</a>
+  </nav>
+  <header>
+    <div class="eyebrow">HWP 뷰어 · HWP / HWPX</div>
+    <h1>한글파일, 설치 없이 온라인에서 연다</h1>
+    <p class="lede">한컴오피스가 없어도 됩니다. <strong>맥북·아이폰·안드로이드</strong>에서도 hwp 파일이 그대로 열리고, <strong>PDF와 Word</strong>로 바꿀 수 있습니다. hwpx가 안 열리는 경우도 여기서 열립니다.</p>
+    <div class="privacy">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      파일이 서버로 전송되지 않습니다 — 전부 이 브라우저 안에서 처리됩니다
+    </div>
+  </header>
+
+  <div class="drop" id="drop" tabindex="0" role="button" aria-label="한글 파일 선택하기">
+    <div class="big">여기에 한글 파일을 끌어다 놓으세요</div>
+    <div class="small">또는 눌러서 선택 · .hwp / .hwpx · 용량 제한 없음</div>
+    <input type="file" id="file" accept=".hwp,.hwpx" />
+  </div>
+
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+
+  <div class="result" id="result">
+    <div class="meta" id="meta"></div>
+
+    <div class="bar">
+      <button class="act primary" type="button" id="btn-print">PDF로 저장</button>
+      <button class="act primary" type="button" id="btn-docx">Word(.docx)로 저장</button>
+      <button class="act" type="button" id="btn-html">HTML 내려받기</button>
+      <button class="act" type="button" id="btn-md">마크다운 내려받기</button>
+      <button class="act" type="button" id="btn-txt">텍스트 내려받기</button>
+      <button class="act" type="button" id="btn-hwpx" hidden>HWPX로 변환해 받기</button>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tab-view" aria-selected="true" aria-controls="pane-view">문서</button>
+      <button role="tab" id="tab-md" aria-selected="false" aria-controls="pane-md">마크다운</button>
+      <button role="tab" id="tab-txt" aria-selected="false" aria-controls="pane-txt">텍스트</button>
+    </div>
+    <div class="pane show" id="pane-view" role="tabpanel" aria-labelledby="tab-view"><div id="docview"></div></div>
+    <div class="pane" id="pane-md" role="tabpanel" aria-labelledby="tab-md"><pre id="mdview"></pre></div>
+    <div class="pane" id="pane-txt" role="tabpanel" aria-labelledby="tab-txt"><pre id="txtview"></pre></div>
+  </div>
+
+  <section class="faq">
+    <h2>자주 묻는 것</h2>
+    <details>
+      <summary>정말 파일이 서버로 안 올라가나요?</summary>
+      <p>올라가지 않습니다. 이 페이지는 파일을 받는 서버가 아예 없습니다. 한글 문서를 해석하는 코드가 브라우저 안에서 실행되고, 파일은 컴퓨터 밖으로 나가지 않습니다. 인터넷을 끊고 새로고침해도 한 번 열린 페이지에서는 계속 동작합니다.</p>
+    </details>
+    <details>
+      <summary>맥북에서 한글파일을 열 수 있나요?</summary>
+      <p>네. 맥북에 한컴오피스를 설치하지 않아도 됩니다. 사파리·크롬 어느 브라우저로 이 페이지를 열고 파일을 올리면 그대로 보입니다. 맥에서 hwp가 안 열려 곤란하셨다면 이 방법이 가장 빠릅니다.</p>
+    </details>
+    <details>
+      <summary>아이폰·안드로이드에서도 되나요?</summary>
+      <p>됩니다. 휴대폰 브라우저에서 이 페이지를 열고 파일을 선택하면 됩니다. 메일이나 메신저로 받은 hwp 첨부파일도 「다른 앱으로 열기」에서 브라우저를 고르거나, 파일 앱에 저장한 뒤 올리시면 됩니다. 앱을 따로 설치하실 필요가 없습니다.</p>
+    </details>
+    <details>
+      <summary>hwpx 파일이 안 열립니다</summary>
+      <p>hwpx는 비교적 최근에 생긴 한글 문서 형식이라, 구버전 한컴오피스나 오래된 뷰어에서는 열리지 않습니다. 이 페이지는 hwp와 hwpx를 모두 지원하므로 그대로 올리시면 됩니다. hwpx를 열어 PDF나 Word로 바꿔 두시면 다른 곳에서도 보실 수 있습니다.</p>
+    </details>
+    <details>
+      <summary>Word(.docx)로 바꿀 수 있나요?</summary>
+      <p>네. 문서를 연 뒤 「Word(.docx)로 저장」을 누르면 됩니다. 글자 서식과 표는 유지되지만, 복잡한 편집 요소는 위치가 달라질 수 있습니다. 원본 그대로가 중요하면 PDF 쪽이 더 정확합니다.</p>
+    </details>
+    <details>
+      <summary>PDF로 저장하려면?</summary>
+      <p>「PDF로 저장 · 인쇄」를 누르면 인쇄 창이 뜹니다. 프린터 선택에서 <b>PDF로 저장</b>을 고르면 됩니다. 문서 내용만 인쇄되고 이 페이지의 버튼이나 설명은 빠집니다.</p>
+    </details>
+    <details>
+      <summary>안 열리는 파일이 있어요</summary>
+      <p>암호가 걸린 문서, 배포용으로 저장된 문서(ViewText), 아주 오래된 한글 3.0 문서는 열 수 없습니다. 그 경우 어떤 이유인지 화면에 표시됩니다.</p>
+    </details>
+    <details>
+      <summary>표와 이미지도 그대로 나오나요?</summary>
+      <p>표는 셀 병합까지 유지되고 이미지도 함께 표시됩니다. 다만 차트, 글맵시, OLE 개체는 지원하지 않고, 머리말·꼬리말·각주는 본문 흐름에 이어서 나옵니다.</p>
+    </details>
+  </section>
+
+  <div class="related" style="margin-top:44px;border-top:2px solid var(--ink);padding-top:22px">
+    <h2 style="font-size:21px;font-weight:700;margin:0 0 14px">가이드</h2>
+    <ul style="list-style:none;padding:0;margin:0">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:18px 0 8px">파일이 안 열릴 때</div>
+      <li style="margin-bottom:9px"><a href="/guide/open-hwp/">한글파일 열기 — 안 열릴 때 기기별로 바로 되는 법</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/mac-free/">맥북에서 한글 무료로 쓰는 법 — 되는 것과 안 되는 것</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/hwpx/">hwpx 파일 열기 — 안 열릴 때 hwp로 변환하는 법</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/viewer-site/">hwp 뷰어 사이트 — 설치 없이 한글파일 여는 법</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/mac/">맥북에서 한글파일(hwp) 여는 법</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/iphone/">아이폰·아이패드에서 hwp 파일 여는 법</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/android/">hwp 뷰어 안드로이드 — 앱 설치 없이 여는 법</a></li>
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:18px 0 8px">다른 형식으로 바꿀 때</div>
+      <li style="margin-bottom:9px"><a href="/guide/hwp-edit/">한글 파일 수정하기 — 한컴 없이 어디까지 되나</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/hwp-to-excel/">한글 표를 엑셀로 옮기기 — 한컴 없이 칸 안 깨지게</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/mac-docx/">맥북에서 hwp를 docx로, docx를 hwp로 — 방향마다 방법이 다릅니다</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/pdf/">한글파일 PDF 변환 — 깨짐 없이 저장하는 법</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/word/">hwp Word 변환 — 설치 없이 무료로 바꾸는 법</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/pdf-to-hwp/">PDF를 hwp로 변환하는 법 — 목적별로 갈리는 방법</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/convert-free/">hwp 변환 무료 사이트 — 고르기 전에 확인할 세 가지</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/hwp-vs-hwpx/">hwp hwpx 차이 — 뭘로 저장해야 하나</a></li>
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:18px 0 8px">문서를 쓸 때</div>
+      <li style="margin-bottom:9px"><a href="/guide/toc-dots/">한글 목차 점선 넣기 — 원리만 알면 버전 상관없다</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/page-number/">한글 쪽번호 매기기 — 안 나올 때 원인별 해결</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/autosave/">한글 자동저장 파일 찾기 — 날린 문서 되찾는 순서</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/char-count/">한글 글자수 세기 — 한컴 없이 브라우저에서</a></li>
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:18px 0 8px">공문서로 제출할 때</div>
+      <li style="margin-bottom:9px"><a href="/guide/form-hwp/">hwp 양식 파일 작성하기 — 한컴 없이 받은 양식 채워서 내는 법</a></li>
+      <li style="margin-bottom:9px"><a href="/guide/official-doc/">공문서 작성법 — 붙임·끝·날짜 표기 규칙</a></li>
+      <li style="margin-top:16px"><a href="/guide/"><strong>가이드 전체 보기 →</strong></a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p><a href="/about/">소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/contact/">문의</a></p>
+    <p>문서 해석에 <a href="https://www.npmjs.com/package/hwp-convert" target="_blank" rel="noopener">hwp-convert</a>(MIT)를 사용합니다. 한글과컴퓨터의 공개 문서를 참고해 만들어진 오픈소스입니다.</p>
+    <p>이 도구는 한글과컴퓨터와 관련이 없습니다.</p>
+  </footer>
+</div>
+
+<script src="./vendor/html-docx.js"></script>
+<script type="module">
+import {
+  HwpxReader, detectFormat, hwpToHwpx, hwpToText, hwpToMarkdown,
+  HwpEncryptedError, HwpUnsupportedError, HwpInvalidFormatError,
+} from "./vendor/hwp-convert.browser.mjs";
+
+const $ = (id) => document.getElementById(id);
+const drop = $("drop"), fileInput = $("file"), statusEl = $("status"), result = $("result");
+
+let current = { name: "", html: "", md: "", txt: "", hwpx: null };
+
+function setStatus(kind, msg, hint) {
+  statusEl.className = "status show " + kind;
+  statusEl.innerHTML = "";
+  statusEl.append(msg);
+  if (hint) {
+    const s = document.createElement("span");
+    s.className = "hint";
+    s.textContent = hint;
+    statusEl.append(s);
+  }
+}
+function clearStatus() { statusEl.className = "status"; statusEl.textContent = ""; }
+
+function bytesLabel(n) {
+  if (n < 1024) return n + " B";
+  if (n < 1024 * 1024) return (n / 1024).toFixed(1) + " KB";
+  return (n / 1024 / 1024).toFixed(1) + " MB";
+}
+
+function showMeta(rows) {
+  $("meta").innerHTML = "";
+  for (const [k, v] of rows) {
+    const d = document.createElement("div");
+    const kk = document.createElement("div"); kk.className = "k"; kk.textContent = k;
+    const vv = document.createElement("div"); vv.className = "v"; vv.textContent = v;
+    d.append(kk, vv);
+    $("meta").append(d);
+  }
+}
+
+function wrapTables(root) {
+  for (const t of root.querySelectorAll("table")) {
+    if (t.parentElement?.classList.contains("scrollx")) continue;
+    const box = document.createElement("div");
+    box.className = "scrollx";
+    t.replaceWith(box);
+    box.append(t);
+  }
+}
+
+async function handle(file) {
+  clearStatus();
+  result.classList.remove("show");
+  setStatus("work", `${file.name} 여는 중…`);
+
+  try {
+    const buf = await file.arrayBuffer();
+    const bytes = new Uint8Array(buf);
+    const fmt = detectFormat(bytes);
+
+    if (fmt === "unknown") {
+      setStatus("err", "한글 문서가 아닌 것 같습니다.",
+        "확장자가 .hwp 또는 .hwpx 인 파일인지 확인해 주세요.");
+      return;
+    }
+    if (fmt === "hwp3") {
+      setStatus("err", "한글 3.0 문서는 지원하지 않습니다.",
+        "한컴오피스에서 한 번 열어 최신 형식으로 저장한 뒤 다시 시도해 주세요.");
+      return;
+    }
+
+    let html = "", md = "", txt = "", hwpxBytes = null, title = "";
+
+    if (fmt === "hwp") {
+      setStatus("work", "HWP 문서를 변환하는 중… (파일이 크면 잠시 걸립니다)");
+      hwpxBytes = await hwpToHwpx(bytes, { title: file.name.replace(/\.hwp$/i, "") });
+      md = await hwpToMarkdown(bytes, { embedImages: true });
+      txt = await hwpToText(bytes);
+      const reader = new HwpxReader();
+      await reader.loadFromArrayBuffer(hwpxBytes.buffer.slice(
+        hwpxBytes.byteOffset, hwpxBytes.byteOffset + hwpxBytes.byteLength));
+      html = await reader.extractHtml({ embedImages: true, renderTables: true, renderStyles: true });
+      const info = await reader.getDocumentInfo();
+      title = info?.metadata?.title || "";
+    } else {
+      setStatus("work", "HWPX 문서를 읽는 중…");
+      const reader = new HwpxReader();
+      await reader.loadFromArrayBuffer(buf);
+      html = await reader.extractHtml({ embedImages: true, renderTables: true, renderStyles: true });
+      md = await reader.extractMarkdown({ embedImages: true });
+      txt = await reader.extractText();
+      const info = await reader.getDocumentInfo();
+      title = info?.metadata?.title || "";
+    }
+
+    current = { name: file.name, html, md, txt, hwpx: hwpxBytes };
+
+    const view = $("docview");
+    view.innerHTML = html;
+    wrapTables(view);
+    $("mdview").textContent = md;
+    $("txtview").textContent = txt;
+
+    showMeta([
+      ["파일", file.name],
+      ["형식", fmt === "hwp" ? "HWP 5.0" : "HWPX"],
+      ["크기", bytesLabel(file.size)],
+      // 자소서·과제 제한은 대개 공백 포함 기준이라 둘 다 보여준다.
+      ["글자수 (공백 포함)", txt.replace(/\r/g, "").length.toLocaleString("ko-KR") + "자"],
+      ["글자수 (공백 제외)", txt.replace(/\s/g, "").length.toLocaleString("ko-KR") + "자"],
+      ...(title ? [["제목", title]] : []),
+    ]);
+
+    $("btn-hwpx").hidden = !hwpxBytes;
+    result.classList.add("show");
+    clearStatus();
+    result.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  } catch (e) {
+    if (e instanceof HwpEncryptedError) {
+      setStatus("err", "암호가 걸린 문서입니다.",
+        "한컴오피스에서 암호를 푼 뒤 저장해서 다시 올려 주세요.");
+    } else if (e instanceof HwpUnsupportedError) {
+      setStatus("err", "이 형식은 아직 지원하지 않습니다.",
+        "배포용으로 저장된 문서(ViewText)이거나 구버전일 수 있습니다.");
+    } else if (e instanceof HwpInvalidFormatError) {
+      setStatus("err", "파일이 손상되었거나 한글 문서가 아닙니다.",
+        "다른 파일로 다시 시도해 주세요.");
+    } else {
+      setStatus("err", "문서를 여는 중 문제가 생겼습니다.", String(e?.message || e));
+      console.error(e);
+    }
+  }
+}
+
+function download(data, filename, mime) {
+  const blob = data instanceof Uint8Array
+    ? new Blob([data], { type: mime })
+    : new Blob([data], { type: mime + ";charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+const base = () => current.name.replace(/\.(hwp|hwpx)$/i, "") || "document";
+
+// events
+drop.addEventListener("click", () => fileInput.click());
+drop.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fileInput.click(); }
+});
+fileInput.addEventListener("change", () => { if (fileInput.files[0]) handle(fileInput.files[0]); });
+for (const ev of ["dragenter", "dragover"]) {
+  drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add("over"); });
+}
+for (const ev of ["dragleave", "drop"]) {
+  drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("over"); });
+}
+drop.addEventListener("drop", (e) => {
+  const f = e.dataTransfer?.files?.[0];
+  if (f) handle(f);
+});
+window.addEventListener("dragover", (e) => e.preventDefault());
+window.addEventListener("drop", (e) => e.preventDefault());
+
+$("btn-print").addEventListener("click", () => {
+  document.querySelectorAll(".pane").forEach((p) => p.classList.remove("show"));
+  $("pane-view").classList.add("show");
+  selectTab("view");
+  window.print();
+});
+$("btn-html").addEventListener("click", () => {
+  const doc = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>${base()}</title>
+<style>body{font-family:"Malgun Gothic","Apple SD Gothic Neo",sans-serif;max-width:800px;margin:40px auto;padding:0 20px;line-height:1.7}
+table{border-collapse:collapse;margin:1em 0}td,th{border:1px solid #999;padding:6px 10px;vertical-align:top}img{max-width:100%}</style>
+</head><body>\n${current.html}\n</body></html>`;
+  download(doc, base() + ".html", "text/html");
+});
+$("btn-docx").addEventListener("click", () => {
+  const lib = window.htmlDocx;
+  if (!lib || typeof lib.asBlob !== "function") {
+    setStatus("err", "Word 변환 기능을 불러오지 못했습니다.",
+      "새로고침 후 다시 시도해 주세요. 계속 안 되면 PDF로 저장을 이용하실 수 있습니다.");
+    return;
+  }
+  try {
+    const doc = `<!doctype html><html><head><meta charset="utf-8"><title>${base()}</title>
+<style>body{font-family:"Malgun Gothic","Apple SD Gothic Neo",sans-serif;line-height:1.7}
+table{border-collapse:collapse}td,th{border:1px solid #999;padding:6px 10px;vertical-align:top}
+img{max-width:100%}</style></head><body>\n${current.html}\n</body></html>`;
+    const blob = lib.asBlob(doc);
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = base() + ".docx";
+    document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  } catch (e) {
+    setStatus("err", "Word 파일을 만드는 중 문제가 생겼습니다.", String(e?.message || e));
+    console.error(e);
+  }
+});
+$("btn-md").addEventListener("click", () => download(current.md, base() + ".md", "text/markdown"));
+$("btn-txt").addEventListener("click", () => download(current.txt, base() + ".txt", "text/plain"));
+$("btn-hwpx").addEventListener("click", () => {
+  if (current.hwpx) download(current.hwpx, base() + ".hwpx", "application/hwp+zip");
+});
+
+function selectTab(which) {
+  for (const id of ["view", "md", "txt"]) {
+    $("tab-" + id).setAttribute("aria-selected", String(id === which));
+    $("pane-" + id).classList.toggle("show", id === which);
+  }
+}
+for (const id of ["view", "md", "txt"]) {
+  $("tab-" + id).addEventListener("click", () => selectTab(id));
+}
+</script>
+</body>
+</html>

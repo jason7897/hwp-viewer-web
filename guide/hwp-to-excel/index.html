@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>한글 표를 엑셀로 옮기기 — 한컴 없이 칸 안 깨지게</title>
+<meta name="description" content="한글파일(hwp) 안의 표를 엑셀로 옮기는 법. 한컴오피스 없이 브라우저에서 표를 그대로 꺼내 붙여넣는 방법과, 칸이 어긋날 때 손보는 순서를 정리했습니다.">
+<meta property="og:title" content="한글 표를 엑셀로 옮기기">
+<meta property="og:description" content="한컴 없이 표를 그대로 꺼냅니다. 칸이 안 깨지는 순서가 있습니다.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://hwp-web.pages.dev/guide/hwp-to-excel/">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"HWP 뷰어","item":"https://hwp-web.pages.dev/"},{"@type":"ListItem","position":2,"name":"가이드","item":"https://hwp-web.pages.dev/guide/"},{"@type":"ListItem","position":3,"name":"한글 표를 엑셀로","item":"https://hwp-web.pages.dev/guide/hwp-to-excel/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"한글 표를 엑셀로 옮기기","mainEntityOfPage":{"@type":"WebPage","@id":"https://hwp-web.pages.dev/guide/hwp-to-excel/"},"inLanguage":"ko","author":{"@type":"Organization","name":"HWP 뷰어","url":"https://hwp-web.pages.dev/"},"publisher":{"@type":"Organization","name":"HWP 뷰어","url":"https://hwp-web.pages.dev/"},"description":"한글파일(hwp) 안의 표를 엑셀로 옮기는 법. 한컴오피스 없이 브라우저에서 표를 그대로 꺼내 붙여넣는 방법과, 칸이 어긋날 때 손보는 순서를 정리했습니다.","datePublished":"2026-10-07"}</script>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="sitenav" aria-label="사이트 메뉴">
+    <a class="home" href="/">HWP 뷰어</a>
+    <a href="/guide/" aria-current="page">가이드</a>
+    <a href="/about/">소개</a>
+    <a href="/contact/">문의</a>
+  </nav>
+  <div class="crumb"><a href="/">HWP 뷰어</a> › 가이드 › 한글 표를 엑셀로</div>
+
+  <h1>한글 표를 엑셀로 옮기기</h1>
+  <p class="lede">한글로 만든 견적서·명단·실적표를 엑셀에서 계산하려는 상황입니다. 한컴오피스가 없어도 됩니다. 다만 <strong>붙여넣는 방법에 따라 칸이 깨지느냐 마느냐가 갈립니다.</strong> 안 깨지는 순서를 적었습니다.</p>
+  <div class="meta">2026-10-07 작성</div>
+
+  <h2>가장 잘 되는 순서</h2>
+
+  <ol>
+    <li><a href="/">홈</a>에 hwp·hwpx 파일을 끌어다 놓습니다</li>
+    <li>내용이 표시되면 <strong>「HTML로 내려받기」</strong>를 누릅니다</li>
+    <li>받은 <code>.html</code> 파일을 더블클릭해 브라우저로 엽니다</li>
+    <li>표를 마우스로 드래그해 선택하고 복사합니다</li>
+    <li><strong>엑셀에 그대로 붙여넣습니다</strong></li>
+  </ol>
+
+  <div class="note ok"><b>왜 HTML을 거치나.</b> 엑셀은 복사된 내용이 <strong>HTML 표</strong>일 때 그것을 표로 알아듣고 칸을 나눠 넣습니다. 화면에서 바로 긁어 붙이면 줄바꿈 단위로만 들어가 한 칸에 몰리는 일이 생깁니다. 한 단계를 더 거치는 대신 칸이 유지됩니다.</div>
+
+  <h2>다른 방법 — 상황에 따라</h2>
+
+  <div class="scrollx">
+  <table>
+    <thead><tr><th>상황</th><th>방법</th><th>결과</th></tr></thead>
+    <tbody>
+      <tr><td><strong>표를 엑셀에서 계산해야 함</strong></td><td>HTML로 내려받아 복사·붙여넣기</td><td>칸이 가장 잘 유지됨</td></tr>
+      <tr><td>값만 빠르게 빼면 됨</td><td>「텍스트로 내려받기」</td><td>칸이 공백으로 구분됨. 엑셀의 「텍스트 나누기」로 나눔</td></tr>
+      <tr><td>문서 전체를 옮김</td><td>「Word(.docx)로 저장」</td><td>워드에서 표를 복사해 엑셀로</td></tr>
+      <tr><td>모양만 보면 됨</td><td><a href="/guide/pdf/">PDF로 저장</a></td><td>편집은 안 되지만 모양이 그대로</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>칸이 어긋났을 때</h2>
+
+  <h3>여러 칸이 한 칸에 몰렸습니다</h3>
+
+  <p>HTML을 거치지 않고 붙여넣었을 때 흔합니다. 위의 순서대로 다시 해보세요. 그래도 몰린다면 <strong>텍스트로 내려받아 「텍스트 나누기」</strong>를 쓰는 편이 빠릅니다. 엑셀에서 붙여넣은 열을 선택하고 <kbd>데이터</kbd> → <kbd>텍스트 나누기</kbd> → 「공백」으로 구분하면 됩니다.</p>
+
+  <h3>병합된 칸이 풀려서 밀렸습니다</h3>
+
+  <p>한글에서 여러 칸을 합쳐 쓴 표는 엑셀로 옮길 때 그 구조가 그대로 가지 않는 경우가 있습니다. <strong>병합이 많은 표는 값만 옮기고 표는 엑셀에서 새로 만드는 편이 빠릅니다.</strong> 씨름하는 시간이 보통 더 깁니다.</p>
+
+  <h3>숫자가 글자로 들어갔습니다</h3>
+
+  <p><code>1,000</code> 처럼 쉼표가 들어간 숫자나 앞에 공백이 붙은 숫자는 엑셀이 글자로 받습니다. 계산이 안 되면 해당 열을 선택해 <kbd>데이터</kbd> → <kbd>텍스트 나누기</kbd> → 마침을 누르면 숫자로 바뀌는 경우가 많습니다.</p>
+
+  <div class="note"><b>옮긴 뒤에는 합계를 한 번 맞춰보세요.</b> 표를 형식 간에 옮기면 빈 칸이 생기거나 행이 밀리는 일이 있습니다. 원본 문서의 합계와 엑셀의 합계가 같은지 확인하는 것이 가장 빠른 검산입니다.</div>
+
+  <h2>반대 방향 — 엑셀 표를 한글로</h2>
+
+  <p>엑셀에서 범위를 복사해 한글 문서에 붙여넣으면 표로 들어갑니다. 다만 <strong>이 사이트는 한글 문서를 만들어 내지는 못합니다</strong> — 읽고 다른 형식으로 내보내는 것까지만 합니다. 한글 문서를 직접 편집해야 한다면 한컴 공식 제품이 필요합니다.</p>
+
+  <h2>자주 묻는 것</h2>
+
+  <details>
+    <summary>엑셀이 없어도 되나요?</summary>
+    <p>구글 스프레드시트에도 같은 방식으로 붙여넣을 수 있습니다. HTML 표를 복사해 붙이면 칸이 나뉘어 들어갑니다.</p>
+  </details>
+  <details>
+    <summary>표가 여러 개인 문서는요?</summary>
+    <p>내려받은 HTML에 표가 전부 들어 있습니다. 필요한 표만 골라 드래그해 복사하세요.</p>
+  </details>
+  <details>
+    <summary>파일이 서버로 올라가나요?</summary>
+    <p>올라가지 않습니다. 문서를 읽고 내보내는 작업이 브라우저 안에서만 일어납니다. 회사 실적표나 명단처럼 밖에 나가면 안 되는 문서도 그대로 쓸 수 있습니다.</p>
+  </details>
+  <details>
+    <summary>표 안의 그림도 옮겨지나요?</summary>
+    <p>그림은 표 구조와 함께 옮겨지지 않을 수 있습니다. 값 위주의 표에 맞는 방법입니다.</p>
+  </details>
+
+  <div class="related">
+    <h2>같이 보면 좋은 글</h2>
+    <ul>
+      <li><a href="/guide/open-hwp/">한글파일 열기 — 안 열릴 때 기기별로</a></li>
+      <li><a href="/guide/word/">hwp Word 변환 — 설치 없이 무료로 바꾸는 법</a></li>
+      <li><a href="/guide/pdf/">한글파일 PDF 변환 — 깨짐 없이 저장하는 법</a></li>
+      <li><a href="/guide/char-count/">한글 글자수 세기 — 한컴 없이 브라우저에서</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>이 문서는 한글과컴퓨터와 관련이 없습니다. 제품명은 각 소유자의 상표입니다.</p>
+    <p><a href="/">HWP 뷰어 홈으로</a> · <a href="/about/">소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/contact/">문의</a></p>
+  </footer>
+</div>
+</body>
+</html>

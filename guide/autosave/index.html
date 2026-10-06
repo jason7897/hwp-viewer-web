@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>한글 자동저장 파일 찾기 — 날린 문서 되찾는 순서</title>
+<meta name="description" content="한글이 꺼져서 문서를 날렸을 때 자동저장 파일을 찾는 순서. 복구 창이 안 뜰 때 임시 폴더에서 직접 찾는 법과, 찾은 파일이 한컴에서 안 열릴 때 확인하는 방법까지 정리했습니다.">
+<meta property="og:title" content="한글 자동저장 파일 찾기 — 날린 문서 되찾는 순서">
+<meta property="og:description" content="복구 창이 안 뜰 때 임시 폴더에서 직접 찾는 법. 찾은 파일이 안 열릴 때까지.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://hwp-web.pages.dev/guide/autosave/">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"HWP 뷰어","item":"https://hwp-web.pages.dev/"},{"@type":"ListItem","position":2,"name":"가이드","item":"https://hwp-web.pages.dev/guide/"},{"@type":"ListItem","position":3,"name":"한글 자동저장 파일 찾기","item":"https://hwp-web.pages.dev/guide/autosave/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"한글 자동저장 파일 찾기","mainEntityOfPage":{"@type":"WebPage","@id":"https://hwp-web.pages.dev/guide/autosave/"},"inLanguage":"ko","author":{"@type":"Organization","name":"HWP 뷰어","url":"https://hwp-web.pages.dev/"},"publisher":{"@type":"Organization","name":"HWP 뷰어","url":"https://hwp-web.pages.dev/"},"description":"한글이 꺼져서 문서를 날렸을 때 자동저장 파일을 찾는 순서. 복구 창이 안 뜰 때 임시 폴더에서 직접 찾는 법과, 찾은 파일이 한컴에서 안 열릴 때 확인하는 방법까지 정리했습니다.","datePublished":"2026-09-23"}</script>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="sitenav" aria-label="사이트 메뉴">
+    <a class="home" href="/">HWP 뷰어</a>
+    <a href="/guide/" aria-current="page">가이드</a>
+    <a href="/about/">소개</a>
+    <a href="/contact/">문의</a>
+  </nav>
+  <div class="crumb"><a href="/">HWP 뷰어</a> › 가이드 › 한글 자동저장 파일 찾기</div>
+
+  <h1>한글 자동저장 파일 찾기</h1>
+  <p class="lede">한글이 갑자기 꺼졌습니다. 몇 시간 쓴 문서를 저장한 적이 없습니다. 급한 순서대로 정리했습니다.</p>
+  <div class="meta">2026-09-23 작성 · 2026-09-28 보강</div>
+
+  <div class="note"><b>먼저 이것부터.</b> 아직 아무것도 하지 마세요. <strong>한글을 다시 실행</strong>하는 것이 1번입니다. 복구 파일은 한글이 알아서 찾아주는 경우가 대부분이고, 다른 작업을 먼저 하면 임시 파일이 지워질 수 있습니다.</div>
+
+  <h2>1단계 — 한글을 다시 켠다</h2>
+
+  <p>한글을 다시 실행하면 <strong>복구할 문서가 있다는 안내</strong>가 뜨는 경우가 많습니다. 목록에서 파일을 고르면 마지막으로 자동저장된 시점의 내용이 열립니다.</p>
+
+  <p>여기서 끝나면 가장 좋습니다. 열리면 <strong>즉시 다른 이름으로 저장</strong>하세요. 복구된 문서는 임시 상태라 그대로 두면 또 잃을 수 있습니다.</p>
+
+  <h2>2단계 — 복구 창이 안 뜰 때, 원본 폴더부터</h2>
+
+  <p>복구 안내가 없다면 <strong>원래 문서가 있던 폴더</strong>를 먼저 봅니다. 한글은 저장할 때 이전 내용을 백업 파일로 남기는 설정이 있어서, 같은 폴더에 비슷한 이름의 파일이 있을 수 있습니다.</p>
+
+  <p>파일 탐색기에서 그 폴더를 열고 <strong>「수정한 날짜」로 정렬</strong>하세요. 오늘 날짜로 된 낯선 파일이 있으면 그것입니다. 확장자를 숨김 해제해 두면 찾기 쉽습니다.</p>
+
+  <h2>3단계 — 임시 폴더에서 직접 찾기</h2>
+
+  <p>한글은 작업 중에 쓰는 <strong>임시 폴더</strong>를 따로 만듭니다. 폴더 이름에 버전 번호가 붙습니다.</p>
+
+  <ol>
+    <li>키보드에서 <kbd>Win</kbd>+<kbd>R</kbd>을 누릅니다</li>
+    <li><code>%TEMP%</code>를 입력하고 확인을 누릅니다</li>
+    <li>폴더 목록에서 <strong><code>Hwp</code>로 시작하는 폴더</strong>를 찾습니다</li>
+  </ol>
+
+  <div class="note ok"><b>실제로 확인한 것.</b> 한컴오피스 2024가 설치된 컴퓨터에서 <code>%TEMP%\Hwp130</code> 폴더가 만들어져 있었습니다. 뒤의 <code>130</code>은 한글 버전 13.0을 뜻합니다. 2020이 깔려 있으면 <code>Hwp110</code>처럼 나옵니다. <strong>버전마다 숫자가 달라지므로 폴더 이름을 통째로 외울 필요는 없고, <code>Hwp</code>로 시작하는 것을 찾으면 됩니다.</strong></div>
+
+  <p>이 폴더가 <strong>비어 있다면 복구 대기 중인 파일이 없다는 뜻</strong>입니다. 실제로 정상 종료된 컴퓨터에서 확인해 보니 비어 있었습니다. 이 경우 3단계로는 더 할 것이 없습니다.</p>
+
+  <p>파일이 있다면 <strong>복사해서 다른 폴더에 두고</strong> 열어보세요. 임시 폴더의 파일은 한글을 다시 켜는 순간 정리될 수 있습니다.</p>
+
+  <h2>4단계 — 찾았는데 안 열릴 때</h2>
+
+  <p>복구 파일을 찾았는데 한글이 열지 못하는 경우가 있습니다. 저장이 끝나기 전에 꺼져서 파일이 온전하지 않거나, 확장자가 이상하게 붙어 있을 때입니다.</p>
+
+  <p>이때 <strong>다른 프로그램으로 열어보면 내용이라도 건질 수 있습니다.</strong> 이 사이트는 hwp와 hwpx를 브라우저에서 바로 읽습니다. 글자가 살아 있으면 텍스트로 뽑아낼 수 있습니다.</p>
+
+  <a class="cta" href="/">
+    <div class="t">복구 파일 열어보기 →</div>
+    <div class="d">설치 없이 브라우저에서. 파일은 서버로 올라가지 않습니다.</div>
+  </a>
+
+  <p>열리면 <strong>「텍스트 내려받기」</strong>나 <strong>「Word로 저장」</strong>으로 내용을 빼내세요. 서식은 잃더라도 글이 남으면 다시 쓰는 시간이 크게 줄어듭니다.</p>
+
+  <div class="note"><b>암호가 걸린 문서와 손상된 문서는 다릅니다.</b> 암호 문서는 어떤 도구로도 암호 없이 열 수 없습니다. 이 사이트는 열지 못하는 이유를 화면에 표시하므로, 손상인지 암호인지 구분하는 데 쓸 수 있습니다.</div>
+
+  <h2>다음부터 안 잃으려면</h2>
+
+  <div class="scrollx">
+  <table>
+    <thead><tr><th>할 것</th><th>왜</th></tr></thead>
+    <tbody>
+      <tr><td>자동저장 주기를 짧게</td><td>기본값보다 짧게 두면 잃는 양이 줄어듭니다</td></tr>
+      <tr><td>백업 파일 만들기 켜기</td><td>저장할 때마다 직전 내용이 따로 남습니다</td></tr>
+      <tr><td>중요한 문서는 클라우드 폴더에</td><td>버전 기록이 남아 되돌릴 수 있습니다</td></tr>
+      <tr><td>작업 중간에 다른 이름으로 저장</td><td>가장 확실하고 가장 안 하는 것</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note"><b>설정 메뉴 위치는 버전마다 다릅니다.</b> 이 글에서 특정 경로를 단정해 적지 않습니다. 쓰고 계신 버전의 환경 설정에서 「자동 저장」이나 「파일」 항목을 찾아보세요. 한 컴퓨터에 여러 버전이 깔려 있으면 설정도 버전마다 따로입니다.</div>
+
+  <h2>자주 묻는 것</h2>
+
+  <details>
+    <summary>임시 폴더가 비어 있습니다</summary>
+    <p>복구 대기 중인 파일이 없다는 뜻입니다. 한글이 정상 종료됐거나, 이미 복구가 끝나 정리됐거나, 자동저장이 한 번도 돌지 않았을 만큼 짧게 작업한 경우입니다. 원본 폴더에서 수정한 날짜로 정렬해 다시 확인해 보세요.</p>
+  </details>
+  <details>
+    <summary>복구 파일을 열었는데 최근 내용이 없습니다</summary>
+    <p>자동저장은 정해진 주기로 돌기 때문에 마지막 몇 분은 빠질 수 있습니다. 주기를 짧게 설정해두면 다음부터 잃는 양이 줄어듭니다.</p>
+  </details>
+  <details>
+    <summary>컴퓨터를 껐다 켰는데도 찾을 수 있나요?</summary>
+    <p>임시 폴더의 내용은 재부팅이나 디스크 정리로 지워질 수 있습니다. 그래서 끄지 말고 먼저 한글부터 다시 실행하는 것이 1번입니다.</p>
+  </details>
+  <details>
+    <summary>맥에서도 같은 방법인가요?</summary>
+    <p>아닙니다. 폴더 구조가 달라 이 글의 3단계는 윈도우 기준입니다. 맥이라면 <a href="/guide/mac/">맥북에서 한글파일 여는 법</a>을 참고하세요.</p>
+  </details>
+
+  <div class="related">
+    <h2>같이 보면 좋은 글</h2>
+    <ul>
+      <li><a href="/guide/hwpx/">hwpx 파일 열기 — 안 열릴 때 hwp로 변환하는 법</a></li>
+      <li><a href="/guide/char-count/">한글 글자수 세기 — 한컴 없이 브라우저에서</a></li>
+      <li><a href="/guide/pdf/">한글파일 PDF 변환 — 깨짐 없이 저장하는 법</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>이 문서는 한글과컴퓨터와 관련이 없습니다. 제품명은 각 소유자의 상표입니다.</p>
+    <p><a href="/">HWP 뷰어 홈으로</a> · <a href="/about/">소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/contact/">문의</a></p>
+  </footer>
+</div>
+</body>
+</html>
